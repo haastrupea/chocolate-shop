@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./src/vendor/css/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="./src/vendor/css/animate/animate.css">
   <link rel="stylesheet" href="./src/resources/css/box-order.css">
-  <title>Document</title>
+  <title>Chocolate store::build your own box of chocolate</title>
 </head>
 <body>
   <header class="container">
