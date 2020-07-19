@@ -127,9 +127,37 @@ function buildProductOptions(){
       return options;
 }
 function addToCartCallBack(success,product,cart){
-  console.log(success);
-  console.log(product);
-  console.log(cart);
+
+  let docFrag = new DocumentFragment();
+  let div = document.createElement('div');
+      div.classList.add('alert','text-center','message-alert');
+      div.style.position = 'fixed';
+      div.style.top = 0;
+      div.style.left = 0;
+      div.style.right = 0;
+      div.style.width = '50%';
+      div.style.margin = 'auto';
+      div.style.zIndex = '9999';
+
+  let message="Product Added to cart successfully";
+
+      if(success){
+        div.classList.add('alert-success');
+      }else{
+        div.classList.add('alert-danger');
+        message = "Failed to Add product to Cart, Please try Again";
+      }
+      div.innerHTML = message;
+
+      document.body.appendChild(div);
+
+      setTimeout(function(){
+        let d = document.querySelector('.message-alert');
+            d.parentElement.removeChild(d);
+      },5000);
+      
+
+
 }
 function addToCart(e){
       e.preventDefault();
