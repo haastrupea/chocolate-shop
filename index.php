@@ -67,7 +67,7 @@ document.querySelectorAll('.grid-product a').forEach(link=>{
     let productId = link.href.match(patern)[1];
           if(!link.href.includes('Gift-card')){
           //rewrite the link
-        link.href = `./cart.html#${productId}`;
+        link.href = `./cart.php#${productId}`;
         
           }// only work on product link;
   })

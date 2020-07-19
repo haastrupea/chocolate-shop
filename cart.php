@@ -61,7 +61,7 @@
         <div class="col-lg-4 col-sm-12 d-flex align-items-center">
           <div id="product-Details">
             <h4 id="product-name" ></h4>
-            <a href="./index.html">
+            <a href="./index.php">
             <span>Back to catalog</span>
             </a>
             <h2 id="price"></h2>
@@ -402,7 +402,7 @@ function initCartPage(prod){
           
   }// called when product info is gotten from the server
 function backHome(){
-  window.location.href ="./index.html";
+  window.location.href ="./index.php";
 }
 
 
