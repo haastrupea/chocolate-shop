@@ -93,6 +93,10 @@ document.querySelectorAll('.grid-product a').forEach(link=>{
   })
 
   Ecwid.OnAPILoaded.add(function(){
+
+    window.addEventListener("click", function (event) {
+    event.stopPropagation();
+    }, true);
   //remove loader
     clearLoader();
 })
