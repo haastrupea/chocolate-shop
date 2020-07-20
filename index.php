@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./src/resources/css/box-order.css">
   <title>Chocolate store::build your own box of chocolate</title>
 </head>
-<body>
+<body class="loading-overlay">
   <header class="container">
     <nav class="navbar">
       <div class="navbar-brand">
@@ -39,14 +39,34 @@
 
   </div>
  </main>
+ <div class="overlay">
+    <div class="loader d-flex align-items-center">
+      <div class="box-loading d-flex animate infinite fa-spin">
+        <img width="50" height="50" src="/src/resources/images/AHA.webp" alt="">
+        <img width="50" height="50" src="/src/resources/images/AO.webp" alt="">
+        <img width="50" height="50" src="/src/resources/images/hotchocolate.webp" alt="">
+        <img width="50" height="50" src="/src/resources/images/Biscotti.webp" alt="">
+      </div>
+      <h3 class="animated pulse infinite">Building your own Box</h3>
+    </div>
+  </div>
+
 </body>
 <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?13470050&data_platform=code&data_date=2020-07-18" charset="utf-8"></script><script type="text/javascript"> 
 
 xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-13470050");
 
+function clearLoader(){
+  document.body.classList.remove('loading-overlay');
+  let overLay = document.querySelector('.overlay');
+      overLay.parentElement.removeChild(overLay);
+}
+
+
 Ecwid.init();
 Ecwid.OnAPILoaded.add(function(){
   console.log('API');
+  
 })
 Ecwid.OnPageLoaded.add(function() {
   console.log('PAGE'); 
@@ -72,6 +92,8 @@ document.querySelectorAll('.grid-product a').forEach(link=>{
           }// only work on product link;
   })
 
+//remove loader
+clearLoader();
 });
 
 </script>
