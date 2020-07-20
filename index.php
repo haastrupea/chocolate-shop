@@ -92,8 +92,12 @@ document.querySelectorAll('.grid-product a').forEach(link=>{
           }// only work on product link;
   })
 
-//remove loader
-clearLoader();
+  Ecwid.OnAPILoaded.add(function(){
+  //remove loader
+    clearLoader();
+})
+
+
 });
 
 </script>
