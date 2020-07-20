@@ -23,7 +23,10 @@
           <span class="fa fa-stack">
             <a href="#"><span class="fa fa-cart-arrow-down fa-2x mini-cart-icon"></span></a>
           </span> -->
-        
+          
+          <div class="ec-cart-widget">
+
+          </div>
       </div>
 
       
@@ -76,6 +79,13 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
         let cloneG = elm.firstElementChild.cloneNode(true);
             elm.innerHTML="";// clear initial content
             elm.appendChild(cloneG);// replace with cloned content
+
+        //stop default click event on this product
+
+    elm.querySelector('.grid-product__wrap').addEventListener("click", function (event) {
+          event.stopPropagation();
+         }, true);
+         
       }// only clone products that are not gift cards;
 })
 
@@ -92,9 +102,7 @@ document.querySelectorAll('.grid-product a').forEach(link=>{
 
   Ecwid.OnAPILoaded.add(function(){
 
-    window.addEventListener("click", function (event) {
-    event.stopPropagation();
-    }, true);
+    
   //remove loader
     clearLoader();
 })
