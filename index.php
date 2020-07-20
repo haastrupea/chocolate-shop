@@ -23,9 +23,7 @@
           <span class="fa fa-stack">
             <a href="#"><span class="fa fa-cart-arrow-down fa-2x mini-cart-icon"></span></a>
           </span> -->
-          <div class="ec-cart-widget">
-
-          </div>
+        
       </div>
 
       
