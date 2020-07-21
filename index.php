@@ -10,7 +10,7 @@
   <title>Chocolate store::build your own box of chocolate</title>
 </head>
 <body class="loading-overlay">
-  <header class="container">
+  <!-- <header class="container">
     <nav class="navbar">
       <div class="navbar-brand">
         <div class="logo">
@@ -19,10 +19,10 @@
       </div>
       <div class=" navbar-text">
         <div id="cart-icon">
-          <!-- <span id="cart-item-count">2</span>
+          <span id="cart-item-count">2</span>
           <span class="fa fa-stack">
             <a href="#"><span class="fa fa-cart-arrow-down fa-2x mini-cart-icon"></span></a>
-          </span> -->
+          </span>
           
           <div class="ec-cart-widget">
 
@@ -33,7 +33,7 @@
 
     </div>
     </nav>
-  </header>
+  </header> -->
   
  <main id="shop-main">
   <div id="my-store-13470050">
