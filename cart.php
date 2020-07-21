@@ -13,9 +13,9 @@
   <header class="container">
     <nav class="navbar">
       <div class="navbar-brand">
-        <div class="logo">
+        <!-- <div class="logo">
           <img src="./src/resources/images/logo.webp" alt="Logo">
-        </div>
+        </div> -->
       </div>
       <div class=" navbar-text">
         <div id="cart-icon">
