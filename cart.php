@@ -187,7 +187,7 @@ function addToCart(e){
 
   cartProduct.callback = addToCartCallBack;
 
-  console.log(cartProduct);
+  // console.log(cartProduct);
 
   Ecwid.Cart.addProduct(cartProduct);
 

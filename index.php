@@ -64,18 +64,21 @@ function clearLoader(){
 }
 
 
+
 Ecwid.init();
 Ecwid.OnAPILoaded.add(function(){
-  console.log('API');
+  // console.log('API');
   
 })
 Ecwid.OnPageLoaded.add(function() {
-  console.log('PAGE'); 
+  
+  // console.log('PAGE'); 
+
 
 document.querySelectorAll('.grid-product').forEach(elm=>{
    let link = elm.querySelector('a');
    
-   if(!link.href.includes('Gift-card')){
+   if(link.href.includes('56350146')){
         let cloneG = elm.firstElementChild.cloneNode(true);
             elm.innerHTML="";// clear initial content
             elm.appendChild(cloneG);// replace with cloned content
@@ -93,7 +96,9 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
 document.querySelectorAll('.grid-product a').forEach(link=>{
     let patern = /p\/(\d+)\//;
     let productId = link.href.match(patern)[1];
-          if(!link.href.includes('Gift-card')){
+
+
+          if(link.href.includes('56350146')){
           //rewrite the link
         link.href = `./cart.php#${productId}`;
         
@@ -101,7 +106,6 @@ document.querySelectorAll('.grid-product a').forEach(link=>{
   })
 
   Ecwid.OnAPILoaded.add(function(){
-
     
   //remove loader
     clearLoader();
