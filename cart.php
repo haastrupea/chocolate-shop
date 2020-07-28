@@ -91,7 +91,7 @@
       <h3 class="animated pulse infinite">Building your own Box</h3>
     </div>
   </div>
-  <script src="./src/resources/data/chocolates.js"></script>
+  <!-- <script src="./src/resources/data/chocolates.js"></script> -->
   <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?13470050&data_platform=code&data_date=2020-07-18" charset="utf-8"></script>
 <script type="text/javascript">
 Ecwid.init();
@@ -102,10 +102,25 @@ Ecwid.init();
  var selectedBoxesData = [];
  var product;
  var boxSize= 0;
+ var data = [];
 
 
 function getProduct(id,callback){
       let baseUrl = `https://app.ecwid.com/api/v3/13470050/products?token=public_6WzqZ3LWix5yrNhew8B7v7pXcfNUsTa3&productId=${id}`
+      let xhr = new XMLHttpRequest();
+          xhr.open('GET',baseUrl);
+          xhr.onreadystatechange = function(e){
+            if(xhr.readyState==4 && xhr.status==200){
+              callback(JSON.parse(xhr.responseText))
+            }
+          }
+
+          xhr.send();
+}
+
+function getflavours(callback){
+  let flavourId = 56389044;
+  let baseUrl = `https://app.ecwid.com/api/v3/13470050/products?token=public_6WzqZ3LWix5yrNhew8B7v7pXcfNUsTa3&category=${flavourId}&enabled=true`;
       let xhr = new XMLHttpRequest();
           xhr.open('GET',baseUrl);
           xhr.onreadystatechange = function(e){
@@ -241,6 +256,31 @@ function getSpotLeft(){
       return spotCount.innerHTML;
 }
 
+function flavourDataAdapter(flavour){
+  let dat = [];
+  flavour.items.forEach(elm=>{
+        // console.log(elm)
+    let d = {};
+        d.name  = elm.name;
+        d.description = elm.description;
+    
+    let imgs = elm.media.images[0].image400pxUrl;
+    let xRay = elm.media.images[1]?elm.media.images[1].image400pxUrl:"";
+
+        d.img = imgs;
+
+        if(xRay.length!==0){
+          d.xRay = xRay;
+        }
+    dat.push(d);
+    });
+
+    data = dat
+    // console.log(data);
+
+    //safe to popluate selector here
+    initNrenderChocolateSelector()
+}
 
 function setMinBoxToOrder(boxSize){
   //some box sizes have minimum quantity that can be ordered
@@ -380,6 +420,15 @@ function initNrenderChocolateSelector(){
             img.src = elm.img;
             img.alt = elm.name;
             figure.appendChild(img);
+
+            if(elm.xRay){
+                  img.classList.add("main-image");
+              let img2 = document.createElement('img');
+                  img2.src = elm.xRay;
+                  img2.alt = elm.name;
+                  img2.classList.add("xray-image",'my-auto');
+                  figure.appendChild(img2);
+            }
         
         let addIcon = document.createElement('div');
             addIcon.classList.add("add-icon");
@@ -401,6 +450,8 @@ function initNrenderChocolateSelector(){
       });
       ul.innerHTML="";
       ul.appendChild(docfrag);
+
+      clearLoader();// remove overlay from pages
 }
 
 function clearLoader(){
@@ -426,14 +477,15 @@ function initCartPage(prod){
               //set up and add empty box spot to the page
               initNrenderEmptyBox();
 
-              //set up chocolate to be clicked on
-              initNrenderChocolateSelector()
+              //get flavour data and set chocolate to be clicked on
+              getflavours(flavourDataAdapter);
+              
 
               //fill the product details
               renderProductDetails();
 
               //remove loader
-              clearLoader();
+             
 
           }//product code is valid
           
@@ -444,6 +496,7 @@ function backHome(){
 
 
   Ecwid.OnAPILoaded.add(function(){
+
             if(location.hash.substr(1).length==0){
               backHome();
             }
@@ -462,6 +515,8 @@ function backHome(){
                 backHome();
               }
   });
+
+
 
   </script>
 </body>

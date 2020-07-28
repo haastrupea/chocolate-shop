@@ -131,6 +131,10 @@ figure{
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 0;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 figure img{
   max-width: 100%;
@@ -158,11 +162,26 @@ figure img{
 figure:hover .add-icon, .selected:hover .remove-icon{
   display: flex;
   opacity: 1;
-  transform: scale(1);
+  transform: scale(.8);
 }
 
 figure:hover img,.selected:hover img{
   transform: scale(1.4);
+}
+
+figure img.xray-image{
+  transform: scale(1);
+  display: none;
+}
+
+figure:hover img.main-image{
+  display: none;
+}
+
+
+figure:hover img.xray-image{
+  display: block;
+
 }
 
 #chocolates h5{
