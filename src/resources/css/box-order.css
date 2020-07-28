@@ -5,6 +5,10 @@ ul{
   padding-left: 0;
 }
 
+.ec-page-title{
+  display: none;
+}
+
 
 .overlay{
   position: fixed;
@@ -171,7 +175,11 @@ figure:hover img,.selected:hover img{
   flex: 0 0 calc((100%/2) - 2rem);
 }
 
-
+@media screen and (max-width:500px){
+  ul#box-with-Spot{
+    width: 310px !important;
+  }
+}
 
 @media (hover:none){
   figure img{

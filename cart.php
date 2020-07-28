@@ -42,7 +42,7 @@
              <h2>Boxes</h2>
            </div>
            
-           <ul id="box-with-Spot" class="box-frame my-4 mx-auto row box6">
+           <ul id="box-with-Spot" class="box-frame my-4 mx-auto row">
            
            </ul>
            <div id="cart-form" class="row align-items-center justify-content-center mb-4 d-none">
@@ -61,7 +61,7 @@
         <div class="col-lg-4 col-sm-12 d-flex align-items-center">
           <div id="product-Details">
             <h4 id="product-name" ></h4>
-            <a href="./index.php">
+            <a href="./index.php#!/build-Box/c/56350146/offset=0&sort=normal">
             <span>Back to catalog</span>
             </a>
             <h2 id="price"></h2>
@@ -183,6 +183,41 @@ function getBoxSize(prod){
   return prod.options.length;
 }
 
+function setBoxFrameSize(){
+  let boxFrame = document.getElementById('box-with-Spot');
+  let box = 155;
+  let even = 310;
+  let odd = 452;
+  let size = even;
+
+  if(boxSize% 2===0){
+    boxFrame.classList.remove('odd');
+    boxFrame.classList.add('even');
+    size = box * (boxSize/2);
+
+    let rowSize = size / box ;
+        if(rowSize>4){
+    size = box * 4;
+        }
+        if(boxSize===2){
+          size = box* 2;
+        }
+  }else{
+    boxFrame.classList.remove('even');
+    boxFrame.classList.add('odd');
+
+    size = box * (boxSize/3);
+
+let rowSize = size / box ;
+    if(rowSize>5){
+size = box * 5;
+    }else{
+size = box * 3;
+    }
+  }
+
+  boxFrame.style.width = size+"px";
+}
 
 function renderSpot(spotLeft){
   let spotCount = document.getElementById('spot-counter');
@@ -317,6 +352,8 @@ function addChocolateToBox(e){
 
 function initNrenderEmptyBox(){
   let boxSpot = document.getElementById('box-with-Spot');
+      
+      setBoxFrameSize()
     // boxSpot.classList.remove("box4","box6","box12",'box2',"box3",'box24');
     // boxSpot.classList.add(`box${boxSize}`);
   let spotFrag = new DocumentFragment();
@@ -402,7 +439,7 @@ function initCartPage(prod){
           
   }// called when product info is gotten from the server
 function backHome(){
-  window.location.href ="./index.php";
+  window.location.href ="./index.php#!/build-Box/c/56350146/offset=0&sort=normal";
 }
 
 
