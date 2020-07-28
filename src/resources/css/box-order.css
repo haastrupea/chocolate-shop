@@ -181,7 +181,7 @@ figure:hover img.main-image{
 
 figure:hover img.xray-image{
   display: block;
-
+  transform: scale(1.2);
 }
 
 #chocolates h5{
