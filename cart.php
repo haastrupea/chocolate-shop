@@ -433,7 +433,6 @@ function initNrenderChocolateSelector(){
         let addIcon = document.createElement('div');
             addIcon.classList.add("add-icon");
             addIcon.title = elm.description.replace(/(<([^>]+)>)/ig,'');
-            console.log(elm.description.replace(/(<([^>]+)>)/ig,''));
 
         let faICon = document.createElement('span');
             faICon.classList.add('fa','fa-plus-circle', 'fa-2x');
