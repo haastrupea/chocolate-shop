@@ -91,7 +91,7 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
 
    let link = elm.querySelector('a');
    
-   if(link.href.includes('56350146')){
+   if(link.href.includes('cart')){
         let cloneG = elm.firstElementChild.cloneNode(true);
             elm.innerHTML="";// clear initial content
             elm.appendChild(cloneG);// replace with cloned content
