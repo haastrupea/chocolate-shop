@@ -76,6 +76,19 @@ Ecwid.OnPageLoaded.add(function() {
 
 
 document.querySelectorAll('.grid-product').forEach(elm=>{
+
+  elm.querySelectorAll('a').forEach(lin=>{
+    let patern = /p\/(\d+)\//;
+    let productId = lin.href.match(patern)[1];
+
+          if(lin.href.includes('56350146')){
+          //rewrite the link
+        lin.href = `./cart.php#${productId}`;
+          }// only work on product link;
+  });
+
+
+
    let link = elm.querySelector('a');
    
    if(link.href.includes('56350146')){
@@ -88,22 +101,42 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
     elm.querySelector('.grid-product__wrap').addEventListener("click", function (event) {
           event.stopPropagation();
          }, true);
+
          
-      }// only clone products that are not gift cards;
+        }// only clone products that are not gift cards;
+
+        //make the button into a link
+      let btn = elm.querySelector('button');
+      let a = document.createElement("a")
+          a.href = link.href;
+          a.appendChild(btn.cloneNode(true));
+      let btnParent = btn.parentElement;
+          btnParent.innerHTML = "";
+          btnParent.appendChild(a)
+
+
+
+      
+
+
+
+
 })
 
 
-document.querySelectorAll('.grid-product a').forEach(link=>{
-    let patern = /p\/(\d+)\//;
-    let productId = link.href.match(patern)[1];
+// document.querySelectorAll('.grid-product a').forEach(link=>{
+//     let patern = /p\/(\d+)\//;
+//     let productId = link.href.match(patern)[1];
+
+//     console.log(link,"replace link")
+//           if(link.href.includes('56350146')){
+//           //rewrite the link
+//         link.href = `./cart.php#${productId}`;
 
 
-          if(link.href.includes('56350146')){
-          //rewrite the link
-        link.href = `./cart.php#${productId}`;
         
-          }// only work on product link;
-  })
+//           }// only work on product link;
+//   })
 
   Ecwid.OnAPILoaded.add(function(){
     
