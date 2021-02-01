@@ -111,10 +111,10 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
             let a = document.createElement("a")
                 a.href = link.href;
             let cloneBtn = btn.cloneNode(true);
-                console.log(cloneBtn,'clone btn')
+                // console.log(cloneBtn,'clone btn')
                 a.appendChild(cloneBtn);
             let btnParent = btn.parentElement;
-              console.log(btnParent,'button Parent')
+              // console.log(btnParent,'button Parent')
                 btnParent.innerHTML = "";
                 btnParent.appendChild(a)
           }
