@@ -107,12 +107,17 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
 
         //make the button into a link
       let btn = elm.querySelector('button');
-      let a = document.createElement("a")
-          a.href = link.href;
-          a.appendChild(btn.cloneNode(true));
-      let btnParent = btn.parentElement;
-          btnParent.innerHTML = "";
-          btnParent.appendChild(a)
+          if(btn){
+            let a = document.createElement("a")
+                a.href = link.href;
+            let cloneBtn = btn.cloneNode(true);
+                console.log(cloneBtn,'clone btn')
+                a.appendChild(cloneBtn);
+            let btnParent = btn.parentElement;
+              console.log(btnParent,'button Parent')
+                btnParent.innerHTML = "";
+                btnParent.appendChild(a)
+          }
 
 
 
