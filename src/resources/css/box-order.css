@@ -237,6 +237,30 @@ figure:hover img.xray-image{
 
 }
 
+.mobile-desc{
+  background: #7d787833;
+  padding: 10px;
+  margin: 0 5px;
+  display: none;
+  position: relative;
+}
+
+.mobile-desc span{
+  display: block;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.mobile-desc::before{
+  content: '';
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-bottom-color:#7d787833 ;
+  position: absolute;
+  bottom: 100%;
+}
+
 @media screen and (max-width:640px){
   .main.row{
     flex-direction: column-reverse;
@@ -245,6 +269,13 @@ figure:hover img.xray-image{
   .ec-minicart{
     transform: scale(2) !important;
   }
-  
+  .mobile-desc{
+    display: block;
+  }
 }
 
+@media screen and (max-width:768px) and (orientation: landscape){
+  .mobile-desc{
+    display: block;
+  }
+}

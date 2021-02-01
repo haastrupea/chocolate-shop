@@ -453,11 +453,10 @@
           figure.appendChild(img2);
         }
 
-        const desc =elm.description
+        const desc =elm.description.replace(/(<([^>]+)>)/ig, '')
         let addIcon = document.createElement('div');
         addIcon.classList.add("add-icon");
-        addIcon.title = desc.replace(/(<([^>]+)>)/ig, '');
-        // console.log(desc,"descriptions")
+        addIcon.title = desc;
         let faICon = document.createElement('span');
         faICon.classList.add('fa', 'fa-plus-circle', 'fa-2x');
         addIcon.appendChild(faICon);
@@ -470,6 +469,15 @@
 
         li.appendChild(h5);
 
+        let description = document.createElement('div')
+            description.classList.add('mobile-desc')
+
+        let descInner = document.createElement("span")
+            descInner.textContent = desc;
+        
+            description.appendChild(descInner)
+
+        li.appendChild(description)
         docfrag.appendChild(li);
       });
       ul.innerHTML = "";
