@@ -186,17 +186,24 @@ figure:hover img.xray-image{
 
 #chocolates h5{
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
 }
 #chocolates li{
   text-align: center;
-  width: calc((100%/2) - 2rem);
-  flex: 0 0 calc((100%/2) - 2rem);
+  width: calc((100%/2) - 1rem);
+  flex: 0 0 calc((100%/2) - 1rem);
 }
 
 @media screen and (max-width:500px){
   ul#box-with-Spot{
     width: 310px !important;
+  }
+
+  #chocolates h5{
+    font-size: 14px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    padding: 15px 0;
   }
 }
 
@@ -238,11 +245,12 @@ figure:hover img.xray-image{
 }
 
 .mobile-desc{
-  background: #7d787833;
+  background: #dfd8d833;
   padding: 10px;
   margin: 0 5px;
   display: none;
   position: relative;
+  border-radius: 5px;
 }
 
 .mobile-desc span{
@@ -251,7 +259,7 @@ figure:hover img.xray-image{
   overflow-y: auto;
 }
 
-.mobile-desc::before{
+/* .mobile-desc::before{
   content: '';
   width: 0;
   height: 0;
@@ -259,7 +267,7 @@ figure:hover img.xray-image{
   border-bottom-color:#7d787833 ;
   position: absolute;
   bottom: 100%;
-}
+} */
 
 @media screen and (max-width:640px){
   .main.row{
