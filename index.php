@@ -63,18 +63,10 @@ function clearLoader(){
       overLay.parentElement.removeChild(overLay);
 }
 
-
-
-Ecwid.init();
-Ecwid.OnAPILoaded.add(function(){
-  // console.log('API');
-  
-})
+function startApp (){
+  Ecwid.init();
 Ecwid.OnPageLoaded.add(function() {
   
-  // console.log('PAGE'); 
-
-
 document.querySelectorAll('.grid-product').forEach(elm=>{
 
   elm.querySelectorAll('a').forEach(lin=>{
@@ -119,38 +111,33 @@ document.querySelectorAll('.grid-product').forEach(elm=>{
                 btnParent.appendChild(a)
           }
 
-
-
-      
-
-
-
-
 })
-
-
-// document.querySelectorAll('.grid-product a').forEach(link=>{
-//     let patern = /p\/(\d+)\//;
-//     let productId = link.href.match(patern)[1];
-
-//     console.log(link,"replace link")
-//           if(link.href.includes('56350146')){
-//           //rewrite the link
-//         link.href = `./cart.php#${productId}`;
-
-
-        
-//           }// only work on product link;
-//   })
 
   Ecwid.OnAPILoaded.add(function(){
     
   //remove loader
     clearLoader();
-})
+  });
 
+})}
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    // window.location.reload();
+    startApp()
+    return
+  }
 
 });
+
+
+
+startApp()
+
 
 </script>
 </html>
