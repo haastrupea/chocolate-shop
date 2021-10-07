@@ -67,9 +67,6 @@ function startApp (){
   Ecwid.init();
 Ecwid.OnPageLoaded.add(function() {
   
-  console.log('PAGE'); 
-
-
 document.querySelectorAll('.grid-product').forEach(elm=>{
 
   elm.querySelectorAll('a').forEach(lin=>{
@@ -131,12 +128,9 @@ window.addEventListener( "pageshow", function ( event ) {
   if ( historyTraversal ) {
     // Handle page restore.
     // window.location.reload();
-    console.log("hello world")
     startApp()
     return
   }
-  
-  console.log("out side")
 
 });
 
