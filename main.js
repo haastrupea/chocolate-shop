@@ -12,7 +12,7 @@ Ecwid.init();
 Ecwid.OnPageSwitch.add(function(page) {
   const {type, productId } = page
   if (type === "PRODUCT") {
-    window.location.href = `cart.html#${productId}`
+    window.location.href = `cart.php#${productId}`
       return false
   }
 })
