@@ -9,10 +9,14 @@ function clearLoader(){
 
 Ecwid.init();
 
+const buildBoxCategoryId = 56350146
+
 Ecwid.OnPageSwitch.add(function(page) {
-  const {type, productId } = page
-  if (type === "PRODUCT") {
-    window.location.href = `cart.php#${productId}`
+  const {type, productId, categoryId } = page
+  
+  console.log(categoryId, "product's category")
+  if (type === "PRODUCT" && categoryId === buildBoxCategoryId) {
+    window.location.href = `cart.html#${productId}`
       return false
   }
 })
