@@ -14,9 +14,8 @@ const buildBoxCategoryId = 56350146
 Ecwid.OnPageSwitch.add(function(page) {
   const {type, productId, categoryId } = page
   
-  console.log(categoryId, "product's category")
   if (type === "PRODUCT" && categoryId === buildBoxCategoryId) {
-    window.location.href = `cart.html#${productId}`
+    window.location.href = `cart.php#${productId}`
       return false
   }
 })
