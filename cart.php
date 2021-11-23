@@ -100,10 +100,11 @@
   </script>
 
   <script>
-    var selectedBoxesData = [];
-    var product;
-    var boxSize = 0;
-    var data = [];
+    var selectedBoxesData = [],
+        product,
+        boxSize = 0,
+        data = [],
+        validFlavours = []
 
 
     function getProduct(id, callback) {
@@ -282,9 +283,12 @@
     function flavourDataAdapter(flavour) {
       let dat = [];
       flavour.items.forEach(elm => {
-        // console.log(elm)
+        const flavourName = elm.name.trim()
+        if(!validFlavours.includes(flavourName)){
+          return;
+        }
         let d = {};
-        d.name = elm.name;
+        d.name = flavourName;
         d.description = elm.description;
 
         let imgs = elm.media.images[0].image400pxUrl;
@@ -493,6 +497,13 @@
     }
 
     function initCartPage(prod) {
+      const choices = new Set()
+      for (const option of prod.items[0].options) {
+        const optionChoices = option.choices.map(choice => choices.add(choice.text))
+        
+      }
+      validFlavours = Array.from(choices)
+
       if (prod.items instanceof Array) {
         product = prod.items[0];
         boxSize = getBoxSize(product);
